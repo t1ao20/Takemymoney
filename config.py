@@ -1,6 +1,10 @@
 import os
+from dotenv import load_dotenv
+
+# 載入 .env 文件
+load_dotenv()
 
 class Config:
-    SQLALCHEMY_DATABASE_URI = 'SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:tsao0120@127.0.0.1:3306/takemymoney-db'
-'
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
     SECRET_KEY = os.getenv('SECRET_KEY', 'secret_key')
+
